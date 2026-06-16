@@ -1,0 +1,74 @@
+{% extends 'menu/menu.html' %}
+
+{% block tittle %}
+    <title>Piedras - Control Travertinos</title>
+{% endblock %}
+
+{% block content %}
+    <div class="nk-block-head nk-block-head-sm">
+        <div class="nk-block-between g-3">
+            <div class="nk-block-head-content">
+                <h3 class="nk-block-title page-title">Catalogo de piedras</h3>
+                <div class="nk-block-des text-soft">
+                    <p>Busca rapidamente la piedra, revisa sus medidas y entra a su detalle con fotos.</p>
+                </div>
+            </div>
+            <div class="nk-block-head-content">
+                <a href="#" class="btn btn-primary disabled" aria-disabled="true">
+                    <em class="icon ni ni-plus"></em><span>Agregar nueva piedra</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="nk-block">
+        <div class="card card-preview">
+            <div class="card-inner">
+                <div class="table-responsive">
+                    <table class="datatable-init table">
+                        <thead>
+                            <tr>
+                                <th>Lingote</th>
+                                <th>Codigo</th>
+                                <th>Fecha de cuadrado</th>
+                                <th>Medidas</th>
+                                <th>M3</th>
+                                <th>Fotos extra</th>
+                                <th>Estatus</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for piedra in piedras %}
+                                <tr>
+                                    <td>{{ piedra.lingote_codigo }}</td>
+                                    <td>{{ piedra.objeto.id_piedra }}</td>
+                                    <td>
+                                        {% if piedra.objeto.fecha_cuadrado %}
+                                            {{ piedra.objeto.fecha_cuadrado|date:"d/m/Y" }}
+                                        {% else %}
+                                            Sin fecha
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ piedra.objeto.largo }} x {{ piedra.objeto.ancho }} x {{ piedra.objeto.alto }} m</td>
+                                    <td>{{ piedra.m3 }} m3</td>
+                                    <td>{{ piedra.cantidad_fotos_extra }}</td>
+                                    <td>{{ piedra.objeto.estatus|title }}</td>
+                                    <td>
+                                        <a href="{% url 'detalle_piedra' piedra.objeto.id %}" class="btn btn-sm btn-primary">
+                                            Ver detalle
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="8" class="text-center text-soft">Aun no hay piedras registradas.</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

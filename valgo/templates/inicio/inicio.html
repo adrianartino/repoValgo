@@ -1,0 +1,24 @@
+{% extends 'menu/menu.html' %}
+
+{% block tittle %}
+
+    <title>Inicio - Hogares Valgo</title>
+{% endblock %}
+
+{% block content %}
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% if messages %}
+        {% for message in messages %}
+            <script>
+                Swal.fire({
+                    title: '{% if message.tags == "success" %}Correcto!{% else %}Error!{% endif %}',
+                    text: '{{ message|escapejs }}',
+                    icon: '{% if message.tags == "success" %}success{% else %}error{% endif %}',
+                    confirmButtonText: 'Aceptar'
+                });
+            </script>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

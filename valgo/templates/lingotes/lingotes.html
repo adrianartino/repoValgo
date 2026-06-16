@@ -1,0 +1,119 @@
+{% extends 'menu/menu.html' %}
+
+{% block tittle %}
+    <title>Lingotes - Control Travertinos</title>
+{% endblock %}
+
+{% block content %}
+    <div class="nk-block-head nk-block-head-sm">
+        <div class="nk-block-between g-3">
+            <div class="nk-block-head-content">
+                <h3 class="nk-block-title page-title">Catalogo de lingotes</h3>
+                <div class="nk-block-des text-soft">
+                    <p>Consulta las medidas de cada lingote, su volumen total y el rendimiento generado por sus piedras.</p>
+                </div>
+            </div>
+            <div class="nk-block-head-content">
+                <a href="#" class="btn btn-primary disabled" aria-disabled="true">
+                    <em class="icon ni ni-plus"></em><span>Agregar nuevo lingote</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="nk-block">
+        <div class="row g-gs mb-4">
+            <div class="col-md-3">
+                <div class="card card-bordered">
+                    <div class="card-inner">
+                        <div class="nk-wg-data">
+                            <div class="amount">{{ lingotes|length }}</div>
+                            <div class="info">
+                                <span class="text-soft">Lingotes registrados</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card card-bordered">
+                    <div class="card-inner">
+                        <div class="nk-wg-data">
+                            <div class="amount">{{ total_piedras }}</div>
+                            <div class="info">
+                                <span class="text-soft">Piedras asociadas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card card-bordered">
+                    <div class="card-inner">
+                        <div class="nk-wg-data">
+                            <div class="amount">{{ total_m3_lingotes }}</div>
+                            <div class="info">
+                                <span class="text-soft">M3 en lingotes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card card-bordered">
+                    <div class="card-inner">
+                        <div class="nk-wg-data">
+                            <div class="amount">{{ total_m3_piedras }}</div>
+                            <div class="info">
+                                <span class="text-soft">M3 en piedras</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="card card-preview">
+            <div class="card-inner">
+                <div class="table-responsive">
+                    <table class="datatable-init table">
+                        <thead>
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Medidas</th>
+                                <th>M3</th>
+                                <th>Piedras</th>
+                                <th>M3 en piedras</th>
+                                <th>Yield</th>
+                                <th>Estatus</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for lingote in lingotes %}
+                                <tr>
+                                    <td>{{ lingote.objeto.id_lingote }}</td>
+                                    <td>{{ lingote.objeto.largo }} x {{ lingote.objeto.ancho }} x {{ lingote.objeto.alto }} m</td>
+                                    <td>{{ lingote.m3 }} m3</td>
+                                    <td>{{ lingote.cantidad_piedras }}</td>
+                                    <td>{{ lingote.total_m3_piedras }} m3</td>
+                                    <td>{{ lingote.yield_porcentaje }}%</td>
+                                    <td>{{ lingote.objeto.estatus|title }}</td>
+                                    <td>
+                                        <a href="{% url 'detalle_lingote' lingote.objeto.id %}" class="btn btn-sm btn-primary">
+                                            Ver detalle
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="8" class="text-center text-soft">Aun no hay lingotes registrados.</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
