@@ -1,0 +1,291 @@
+{% extends 'menu/menu.html' %}
+
+{% block tittle %}
+    <title>Historial de Cuotas de Mantenimiento - Hogares Valgo</title>
+{% endblock %}
+
+{% block content %}
+    <div class="nk-block-head nk-block-head-sm animate__animated animate__fadeInDown">
+        <div class="nk-block-between">
+            <div class="nk-block-head-content">
+                <h3 class="nk-block-title page-title">Historial de cuotas de mantenimiento</h3>
+                <div class="nk-block-des text-soft">
+                    <p>Consulta general de cuotas por cliente, fraccionamiento, mes y estatus.</p>
+                </div>
+            </div>
+            <div class="nk-block-head-content">
+                <div class="toggle-wrap nk-block-tools-toggle">
+                    <a href="#" class="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em class="icon ni ni-menu-alt-r"></em></a>
+                    <div class="toggle-expand-content" data-content="pageMenu">
+                        <ul class="nk-block-tools g-3">
+                            <li>
+                                <a href="#" class="btn btn-white btn-outline-light">
+                                    <em class="icon ni ni-download-cloud"></em><span>Exportar</span>
+                                </a>
+                            </li>
+                            <li class="nk-block-tools-opt">
+                                <a href="#" class="btn btn-primary">
+                                    <em class="icon ni ni-plus"></em><span>Nueva cuota</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nk-block animate__animated animate__fadeIn">
+        <div class="row g-gs">
+            <div class="col-sm-6 col-lg-3">
+                <div class="card card-bordered h-100">
+                    <div class="card-inner">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <div class="user-avatar bg-primary-dim text-primary">
+                                <em class="icon ni ni-users"></em>
+                            </div>
+                            <span class="badge badge-dim badge-primary">General</span>
+                        </div>
+                        <div class="nk-wg5">
+                            <div class="nk-wg5-title">
+                                <h6 class="title overline-title text-base">Total clientes</h6>
+                            </div>
+                            <div class="nk-wg5-text">
+                                <div class="amount">145</div>
+                                <span class="sub-text">Clientes con cuota registrada</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="card card-bordered h-100">
+                    <div class="card-inner">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <div class="user-avatar bg-success-dim text-success">
+                                <em class="icon ni ni-check-round"></em>
+                            </div>
+                            <span class="badge badge-dim badge-success">Pagado</span>
+                        </div>
+                        <div class="nk-wg5">
+                            <div class="nk-wg5-title">
+                                <h6 class="title overline-title text-base">Pagados</h6>
+                            </div>
+                            <div class="nk-wg5-text">
+                                <div class="amount">98</div>
+                                <span class="sub-text">$104,860 acumulados</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="card card-bordered h-100">
+                    <div class="card-inner">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <div class="user-avatar bg-warning-dim text-warning">
+                                <em class="icon ni ni-clock"></em>
+                            </div>
+                            <span class="badge badge-dim badge-warning">Pendiente</span>
+                        </div>
+                        <div class="nk-wg5">
+                            <div class="nk-wg5-title">
+                                <h6 class="title overline-title text-base">Pendientes</h6>
+                            </div>
+                            <div class="nk-wg5-text">
+                                <div class="amount">20</div>
+                                <span class="sub-text">$21,400 por cobrar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="card card-bordered h-100">
+                    <div class="card-inner">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <div class="user-avatar bg-danger-dim text-danger">
+                                <em class="icon ni ni-cross-round"></em>
+                            </div>
+                            <span class="badge badge-dim badge-danger">Vencido</span>
+                        </div>
+                        <div class="nk-wg5">
+                            <div class="nk-wg5-title">
+                                <h6 class="title overline-title text-base">Vencidos</h6>
+                            </div>
+                            <div class="nk-wg5-text">
+                                <div class="amount">27</div>
+                                <span class="sub-text">$72,900 vencidos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nk-block nk-block-lg animate__animated animate__fadeIn">
+        <div class="nk-block-head nk-block-head-sm">
+            <div class="nk-block-between">
+                <div class="nk-block-head-content">
+                    <h5 class="nk-block-title">Cuotas registradas</h5>
+                    <div class="nk-block-des text-soft">
+                        <p>Filtra el historial antes de revisar la tabla.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3 align-center mb-4">
+            <div class="col-md-3">
+                <select class="form-select form-select-sm">
+                    <option>Fraccionamiento</option>
+                    <option>Almeras</option>
+                    <option>Toscana</option>
+                    <option>Rioja</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select class="form-select form-select-sm">
+                    <option>Mes</option>
+                    <option>Junio</option>
+                    <option>Mayo</option>
+                    <option>Abril</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select class="form-select form-select-sm">
+                    <option>Anio</option>
+                    <option>2026</option>
+                    <option>2025</option>
+                    <option>2024</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select class="form-select form-select-sm">
+                    <option>Estatus</option>
+                    <option>Pagado</option>
+                    <option>Pendiente</option>
+                    <option>Vencido</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-wrap">
+                    <div class="form-icon form-icon-left">
+                        <em class="icon ni ni-search"></em>
+                    </div>
+                    <input type="text" class="form-control form-control-sm" placeholder="Buscar cliente">
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-bordered card-stretch">
+            <div class="card-inner p-0">
+                <table class="datatable-init nowrap nk-tb-list nk-tb-ulist" data-auto-responsive="false">
+                        <thead>
+                            <tr class="nk-tb-item nk-tb-head">
+                                <th class="nk-tb-col"><span class="sub-text">Cliente</span></th>
+                                <th class="nk-tb-col tb-col-md"><span class="sub-text">Fracc.</span></th>
+                                <th class="nk-tb-col tb-col-sm"><span class="sub-text">Mes</span></th>
+                                <th class="nk-tb-col tb-col-md"><span class="sub-text">Monto base</span></th>
+                                <th class="nk-tb-col tb-col-md"><span class="sub-text">Penaliz.</span></th>
+                                <th class="nk-tb-col tb-col-md"><span class="sub-text">Total</span></th>
+                                <th class="nk-tb-col tb-col-md"><span class="sub-text">Estatus</span></th>
+                                <th class="nk-tb-col nk-tb-col-tools text-right"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="nk-tb-item">
+                                <td class="nk-tb-col">
+                                    <div class="user-card">
+                                        <div class="user-avatar bg-danger-dim text-danger d-none d-sm-flex"><span>MG</span></div>
+                                        <div class="user-info">
+                                            <span class="tb-lead">Marcos Guerrero</span>
+                                            <span>Lote 18, Manzana 4</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="nk-tb-col tb-col-md"><span>Almeras</span></td>
+                                <td class="nk-tb-col tb-col-sm"><span>Jun</span></td>
+                                <td class="nk-tb-col tb-col-md"><span class="tb-amount">$2,500</span></td>
+                                <td class="nk-tb-col tb-col-md"><span class="tb-amount text-danger">$200</span></td>
+                                <td class="nk-tb-col tb-col-md"><span class="tb-amount">$2,700</span></td>
+                                <td class="nk-tb-col tb-col-md"><span class="badge badge-dot badge-danger">Vencido</span></td>
+                                <td class="nk-tb-col nk-tb-col-tools">
+                                    <ul class="nk-tb-actions gx-1">
+                                        <li><a href="#" class="btn btn-trigger btn-icon" data-toggle="tooltip" title="Ver detalle"><em class="icon ni ni-eye"></em></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr class="nk-tb-item">
+                                <td class="nk-tb-col">
+                                    <div class="user-card">
+                                        <div class="user-avatar bg-success-dim text-success d-none d-sm-flex"><span>OA</span></div>
+                                        <div class="user-info">
+                                            <span class="tb-lead">Omar Alvarez</span>
+                                            <span>Lote 07, Manzana 1</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="nk-tb-col tb-col-md"><span>Toscana</span></td>
+                                <td class="nk-tb-col tb-col-sm"><span>Jun</span></td>
+                                <td class="nk-tb-col tb-col-md"><span class="tb-amount">$1,070</span></td>
+                                <td class="nk-tb-col tb-col-md"><span class="tb-amount">$0</span></td>
+                                <td class="nk-tb-col tb-col-md"><span class="tb-amount">$1,070</span></td>
+                                <td class="nk-tb-col tb-col-md"><span class="badge badge-dot badge-success">Pagado</span></td>
+                                <td class="nk-tb-col nk-tb-col-tools">
+                                    <ul class="nk-tb-actions gx-1">
+                                        <li><a href="#" class="btn btn-trigger btn-icon" data-toggle="tooltip" title="Ver detalle"><em class="icon ni ni-eye"></em></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr class="nk-tb-item">
+                                <td class="nk-tb-col">
+                                    <div class="user-card">
+                                        <div class="user-avatar bg-warning-dim text-warning d-none d-sm-flex"><span>LC</span></div>
+                                        <div class="user-info">
+                                            <span class="tb-lead">Laura Castillo</span>
+                                            <span>Lote 22, Manzana 3</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="nk-tb-col tb-col-md"><span>Rioja</span></td>
+                                <td class="nk-tb-col tb-col-sm"><span>Jun</span></td>
+                                <td class="nk-tb-col tb-col-md"><span class="tb-amount">$1,850</span></td>
+                                <td class="nk-tb-col tb-col-md"><span class="tb-amount">$0</span></td>
+                                <td class="nk-tb-col tb-col-md"><span class="tb-amount">$1,850</span></td>
+                                <td class="nk-tb-col tb-col-md"><span class="badge badge-dot badge-warning">Pendiente</span></td>
+                                <td class="nk-tb-col nk-tb-col-tools">
+                                    <ul class="nk-tb-actions gx-1">
+                                        <li><a href="#" class="btn btn-trigger btn-icon" data-toggle="tooltip" title="Ver detalle"><em class="icon ni ni-eye"></em></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr class="nk-tb-item">
+                                <td class="nk-tb-col">
+                                    <div class="user-card">
+                                        <div class="user-avatar bg-success-dim text-success d-none d-sm-flex"><span>PR</span></div>
+                                        <div class="user-info">
+                                            <span class="tb-lead">Paola Rios</span>
+                                            <span>Lote 11, Manzana 2</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="nk-tb-col tb-col-md"><span>Almeras</span></td>
+                                <td class="nk-tb-col tb-col-sm"><span>May</span></td>
+                                <td class="nk-tb-col tb-col-md"><span class="tb-amount">$2,300</span></td>
+                                <td class="nk-tb-col tb-col-md"><span class="tb-amount">$0</span></td>
+                                <td class="nk-tb-col tb-col-md"><span class="tb-amount">$2,300</span></td>
+                                <td class="nk-tb-col tb-col-md"><span class="badge badge-dot badge-success">Pagado</span></td>
+                                <td class="nk-tb-col nk-tb-col-tools">
+                                    <ul class="nk-tb-actions gx-1">
+                                        <li><a href="#" class="btn btn-trigger btn-icon" data-toggle="tooltip" title="Ver detalle"><em class="icon ni ni-eye"></em></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

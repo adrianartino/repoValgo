@@ -10,6 +10,8 @@
     <meta name="description" content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="{% static 'images\valgo\valgoico.ico' %}">
+    <!-- Animate CSS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <!-- Page Title  -->
     {% block tittle %}
     {% endblock %}
@@ -133,10 +135,7 @@
                                         </a>
                                         <ul class="nk-menu-sub">
                                             <li class="nk-menu-item">
-                                                <a href="/lingotes/" class="nk-menu-link"><span class="nk-menu-text">Ver Fraccionamientos</span></a>
-                                            </li>
-                                            <li class="nk-menu-item">
-                                                <a href="/horarios/" class="nk-menu-link"><span class="nk-menu-text">Agregar Fracc.</span></a>
+                                                <a href="/verFraccionamientos/" class="nk-menu-link"><span class="nk-menu-text">Ver Fraccionamientos</span></a>
                                             </li>
                                         </ul><!-- .nk-menu-sub -->
                                     </li><!-- .nk-menu-item -->
@@ -144,14 +143,11 @@
                                     <li class="nk-menu-item has-sub">
                                         <a href="#" class="nk-menu-link nk-menu-toggle">
                                             <span class="nk-menu-icon"><em class="icon ni ni-user-check"></em></span>
-                                            <span class="nk-menu-text">Clientes</span>
+                                            <span class="nk-menu-text">Colonos</span>
                                         </a>
                                         <ul class="nk-menu-sub">
                                             <li class="nk-menu-item">
-                                                <a href="/lingotes/" class="nk-menu-link"><span class="nk-menu-text">Ver clientes</span></a>
-                                            </li>
-                                            <li class="nk-menu-item">
-                                                <a href="/horarios/" class="nk-menu-link"><span class="nk-menu-text">Agregar cliente</span></a>
+                                                <a href="/verColonos/" class="nk-menu-link"><span class="nk-menu-text">Ver colonos</span></a>
                                             </li>
                                         </ul><!-- .nk-menu-sub -->
                                     </li><!-- .nk-menu-item -->
@@ -169,16 +165,16 @@
                                         </a>
                                         <ul class="nk-menu-sub">
                                             <li class="nk-menu-item">
-                                                <a href="/piedras/" class="nk-menu-link"><span class="nk-menu-text">Historial de cuotas</span></a>
+                                                <a href="/historialCuotasMtto/" class="nk-menu-link"><span class="nk-menu-text">Historial de cuotas</span></a>
                                             </li>
                                             <li class="nk-menu-item">
-                                                <a href="/horarios/" class="nk-menu-link"><span class="nk-menu-text">Cuotas del mes</span></a>
+                                                <a href="/cuotasMesMtto/" class="nk-menu-link"><span class="nk-menu-text">Cuotas del mes</span></a>
                                             </li>
                                             <li class="nk-menu-item">
-                                                <a href="/horarios/" class="nk-menu-link"><span class="nk-menu-text">Clientes morosos</span></a>
+                                                <a href="/clientesMorososMtto/" class="nk-menu-link"><span class="nk-menu-text">Clientes morosos</span></a>
                                             </li>
                                             <li class="nk-menu-item">
-                                                <a href="/horarios/" class="nk-menu-link"><span class="nk-menu-text">Aplicar penalizaciones</span></a>
+                                                <a href="/penalizacionesMtto/" class="nk-menu-link"><span class="nk-menu-text">Aplicar penalizaciones</span></a>
                                             </li>
                                         </ul><!-- .nk-menu-sub -->
                                     </li><!-- .nk-menu-item -->
@@ -191,16 +187,16 @@
                                         </a>
                                         <ul class="nk-menu-sub">
                                             <li class="nk-menu-item">
-                                                <a href="/piedras/" class="nk-menu-link"><span class="nk-menu-text">Historial de cuotas</span></a>
+                                                <a href="/historialCuotasAgua/" class="nk-menu-link"><span class="nk-menu-text">Historial de cuotas</span></a>
                                             </li>
                                             <li class="nk-menu-item">
-                                                <a href="/horarios/" class="nk-menu-link"><span class="nk-menu-text">Cuotas del mes</span></a>
+                                                <a href="/cuotasMesAgua/" class="nk-menu-link"><span class="nk-menu-text">Cuotas del mes</span></a>
                                             </li>
                                             <li class="nk-menu-item">
-                                                <a href="/horarios/" class="nk-menu-link"><span class="nk-menu-text">Clientes morosos</span></a>
+                                                <a href="/clientesMorososAgua/" class="nk-menu-link"><span class="nk-menu-text">Clientes morosos</span></a>
                                             </li>
                                             <li class="nk-menu-item">
-                                                <a href="/horarios/" class="nk-menu-link"><span class="nk-menu-text">Aplicar penalizaciones</span></a>
+                                                <a href="/penalizacionesAgua/" class="nk-menu-link"><span class="nk-menu-text">Aplicar penalizaciones</span></a>
                                             </li>
                                         </ul><!-- .nk-menu-sub -->
                                     </li><!-- .nk-menu-item -->
@@ -214,17 +210,17 @@
                                             <li class="nk-menu-item">
                                                 <a href="#" class="nk-menu-link nk-menu-toggle"><span class="nk-menu-text">Cuotas Mtto.</span></a>
                                                 <ul class="nk-menu-sub">
-                                                    <li class="nk-menu-item"><a href="html/components/forms/form-summernote.html" class="nk-menu-link"><span class="nk-menu-text">Estado de cuenta x cliente</span></a></li>
-                                                    <li class="nk-menu-item"><a href="html/components/forms/form-quill.html" class="nk-menu-link"><span class="nk-menu-text">Resumen Mensual x Fracc.</span></a></li>
-                                                    <li class="nk-menu-item"><a href="html/components/forms/form-tinymce.html" class="nk-menu-link"><span class="nk-menu-text">Cartera vencida</span></a></li>
+                                                    <li class="nk-menu-item"><a href="/estadoDeCuentaClienteMtto/" class="nk-menu-link"><span class="nk-menu-text">Estado de cuenta x cliente</span></a></li>
+                                                    <li class="nk-menu-item"><a href="/resumenMensualFraccMtto/" class="nk-menu-link"><span class="nk-menu-text">Resumen Mensual x Fracc.</span></a></li>
+                                                    <li class="nk-menu-item"><a href="/carteraVencidaMtto/" class="nk-menu-link"><span class="nk-menu-text">Cartera vencida</span></a></li>
                                                 </ul><!-- .nk-menu-sub -->
                                             </li>
                                             <li class="nk-menu-item">
                                                 <a href="#" class="nk-menu-link nk-menu-toggle"><span class="nk-menu-text">Cuotas Agua</span></a>
                                                 <ul class="nk-menu-sub">
-                                                    <li class="nk-menu-item"><a href="html/components/forms/form-summernote.html" class="nk-menu-link"><span class="nk-menu-text">Estado de cuenta x cliente</span></a></li>
-                                                    <li class="nk-menu-item"><a href="html/components/forms/form-quill.html" class="nk-menu-link"><span class="nk-menu-text">Resumen Mensual x Fracc.</span></a></li>
-                                                    <li class="nk-menu-item"><a href="html/components/forms/form-tinymce.html" class="nk-menu-link"><span class="nk-menu-text">Cartera vencida</span></a></li>
+                                                    <li class="nk-menu-item"><a href="/estadoDeCuentaClienteAgua/" class="nk-menu-link"><span class="nk-menu-text">Estado de cuenta x cliente</span></a></li>
+                                                    <li class="nk-menu-item"><a href="/resumenMensualFraccAgua/" class="nk-menu-link"><span class="nk-menu-text">Resumen Mensual x Fracc.</span></a></li>
+                                                    <li class="nk-menu-item"><a href="/carteraVencidaAgua/" class="nk-menu-link"><span class="nk-menu-text">Cartera vencida</span></a></li>
                                                 </ul><!-- .nk-menu-sub -->
                                             </li>
                                            
