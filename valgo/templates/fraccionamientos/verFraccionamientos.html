@@ -1,449 +1,431 @@
 {% extends 'menu/menu.html' %}
 
 {% block tittle %}
-
-    <title>Fraccionamientos - Hogares Valgo</title>
+<title>Fraccionamientos - Hogares Valgo</title>
 {% endblock %}
 
 {% block content %}
-    <div class="nk-block-head nk-block-head-sm animate__animated animate__fadeInDown">
-        <div class="nk-block-between">
-            <div class="nk-block-head-content">
-                <h3 class="nk-block-title page-title">Projects</h3>
-                <div class="nk-block-des text-soft">
-                    <p>You have total 95 projects.</p>
-                </div>
-            </div><!-- .nk-block-head-content -->
-            <div class="nk-block-head-content">
-                <div class="toggle-wrap nk-block-tools-toggle">
-                    <a href="#" class="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em class="icon ni ni-menu-alt-r"></em></a>
-                    <div class="toggle-expand-content" data-content="pageMenu">
-                        <ul class="nk-block-tools g-3">
+
+<div class="nk-block-head nk-block-head-sm animate__animated animate__fadeInDown" style="position:relative; z-index:10;">
+    <div class="nk-block-between">
+        <div class="nk-block-head-content">
+            <h3 class="nk-block-title page-title">Fraccionamientos</h3>
+            <div class="nk-block-des text-soft">
+                <p>Tienes un total de <strong>6 fraccionamientos</strong> registrados.</p>
+            </div>
+        </div>
+        <div class="nk-block-head-content">
+            <ul class="nk-block-tools g-3">
+                <li>
+                    <div class="drodown">
+                        <a href="#" class="dropdown-toggle btn btn-white btn-dim btn-outline-light" data-toggle="dropdown">
+                            <em class="icon ni ni-filter-alt"></em>
+                            <span>Filtrar</span>
+                            <em class="dd-indc icon ni ni-chevron-right"></em>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <ul class="link-list-opt no-bdr">
+                                <li><a href="#"><span>Todos</span></a></li>
+                                <li><a href="#"><span>Activos</span></a></li>
+                                <li><a href="#"><span>En Construcción</span></a></li>
+                                <li><a href="#"><span>Suspendidos</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="nk-block-tools-opt">
+                    <a href="#" class="btn btn-primary">
+                        <em class="icon ni ni-plus"></em>
+                        <span>Nuevo Fraccionamiento</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="nk-block animate__animated animate__fadeIn">
+    <div class="row g-gs">
+
+        <!-- Fraccionamiento 1 -->
+        <div class="col-sm-6 col-xl-4">
+            <div class="card card-bordered h-100">
+                <div class="card-inner">
+                    <div class="project">
+                        <div class="project-head">
+                            <a href="#" class="project-title">
+                                <div class="user-avatar sq bg-success"><span>VV</span></div>
+                                <div class="project-info">
+                                    <h6 class="title">Valle Verde</h6>
+                                    <span class="sub-text">Guadalajara, Jalisco</span>
+                                </div>
+                            </a>
+                            <div class="drodown">
+                                <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 mr-n1" data-toggle="dropdown">
+                                    <em class="icon ni ni-more-h"></em>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <ul class="link-list-opt no-bdr">
+                                        <li><a href="#"><em class="icon ni ni-eye"></em><span>Ver Detalle</span></a></li>
+                                        <li><a href="#"><em class="icon ni ni-edit"></em><span>Editar</span></a></li>
+                                        <li><a href="#"><em class="icon ni ni-users"></em><span>Ver Colonos</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <p>Fraccionamiento residencial con áreas verdes y vigilancia 24/7. Zona tranquila al norte de la ciudad.</p>
+                        </div>
+                        <ul class="team-statistics" style="list-style:none; padding:0; display:flex; gap:20px; margin-bottom:12px;">
                             <li>
-                                <div class="drodown">
-                                    <a href="#" class="dropdown-toggle btn btn-white btn-dim btn-outline-light" data-toggle="dropdown"><em class="d-none d-sm-inline icon ni ni-filter-alt"></em><span>Filtered By</span><em class="dd-indc icon ni ni-chevron-right"></em></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <ul class="link-list-opt no-bdr">
-                                            <li><a href="#"><span>Open</span></a></li>
-                                            <li><a href="#"><span>Closed</span></a></li>
-                                            <li><a href="#"><span>Onhold</span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                <span class="amount">120</span>
+                                <span class="title text-soft" style="display:block; font-size:11px;">Lotes</span>
                             </li>
-                            <li class="nk-block-tools-opt"><a href="#" class="btn btn-primary"><em class="icon ni ni-plus"></em><span>Add Project</span></a></li>
+                            <li>
+                                <span class="amount">98</span>
+                                <span class="title text-soft" style="display:block; font-size:11px;">Colonos</span>
+                            </li>
                         </ul>
-                    </div>
-                </div><!-- .toggle-wrap -->
-            </div><!-- .nk-block-head-content -->
-        </div><!-- .nk-block-between -->
-    </div><!-- .nk-block-head -->
-    <div class="nk-block animate__animated animate__fadeIn">
-        <div class="row g-gs ">
-            <div class="col-sm-6 col-xl-4">
-                <div class="card card-bordered h-100">
-                    <div class="card-inner">
-                        <div class="project">
-                            <div class="project-head">
-                                <a href="html/apps-kanban.html" class="project-title">
-                                    <div class="user-avatar sq bg-purple"><span>DD</span></div>
-                                    <div class="project-info">
-                                        <h6 class="title">Dashlite Development</h6>
-                                        <span class="sub-text">Softnio</span>
-                                    </div>
-                                </a>
-                                <div class="drodown">
-                                    <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 mr-n1" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <ul class="link-list-opt no-bdr">
-                                            <li><a href="html/apps-kanban.html"><em class="icon ni ni-eye"></em><span>View Project</span></a></li>
-                                            <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Project</span></a></li>
-                                            <li><a href="#"><em class="icon ni ni-check-round-cut"></em><span>Mark As Done</span></a></li>
-                                        </ul>
-                                    </div>
+                        <div class="project-progress">
+                            <div class="project-progress-details">
+                                <div class="project-progress-task">
+                                    <em class="icon ni ni-money"></em>
+                                    <span>Cuotas al corriente</span>
                                 </div>
+                                <div class="project-progress-percent">87%</div>
                             </div>
-                            <div class="project-details">
-                                <p>Design and develop the DashLite template for Envato Marketplace.</p>
-                            </div>
-                            <div class="project-progress">
-                                <div class="project-progress-details">
-                                    <div class="project-progress-task"><em class="icon ni ni-check-round-cut"></em><span>3 Tasks</span></div>
-                                    <div class="project-progress-percent">93.5%</div>
-                                </div>
-                                <div class="progress progress-pill progress-md bg-light">
-                                    <div class="progress-bar" data-progress="93.5"></div>
-                                </div>
-                            </div>
-                            <div class="project-meta">
-                                <ul class="project-users g-1">
-                                    <li>
-                                        <div class="user-avatar sm bg-primary"><span>A</span></div>
-                                    </li>
-                                    <li>
-                                        <div class="user-avatar sm bg-blue"><img src="./images/avatar/b-sm.jpg" alt=""></div>
-                                    </li>
-                                    <li>
-                                        <div class="user-avatar bg-light sm"><span>+12</span></div>
-                                    </li>
-                                </ul>
-                                <span class="badge badge-dim badge-warning"><em class="icon ni ni-clock"></em><span>5 Days Left</span></span>
+                            <div class="progress progress-pill progress-md bg-light">
+                                <div class="progress-bar bg-success" data-progress="87" style="width:87%"></div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-4">
-                <div class="card card-bordered h-100">
-                    <div class="card-inner">
-                        <div class="project">
-                            <div class="project-head">
-                                <a href="html/apps-kanban.html" class="project-title">
-                                    <div class="user-avatar sq bg-warning"><span>RW</span></div>
-                                    <div class="project-info">
-                                        <h6 class="title">Redesign Website</h6>
-                                        <span class="sub-text">Runnergy</span>
-                                    </div>
-                                </a>
-                                <div class="drodown">
-                                    <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 mr-n1" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <ul class="link-list-opt no-bdr">
-                                            <li><a href="html/apps-kanban.html"><em class="icon ni ni-eye"></em><span>View Project</span></a></li>
-                                            <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Project</span></a></li>
-                                            <li><a href="#"><em class="icon ni ni-check-round-cut"></em><span>Mark As Done</span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="project-details">
-                                <p>Design the website for Runnergy main website including their user dashboard.</p>
-                            </div>
-                            <div class="project-progress">
-                                <div class="project-progress-details">
-                                    <div class="project-progress-task"><em class="icon ni ni-check-round-cut"></em><span>25 Tasks</span></div>
-                                    <div class="project-progress-percent">23%</div>
-                                </div>
-                                <div class="progress progress-pill progress-md bg-light">
-                                    <div class="progress-bar" data-progress="23"></div>
-                                </div>
-                            </div>
-                            <div class="project-meta">
-                                <ul class="project-users g-1">
-                                    <li>
-                                        <div class="user-avatar sm bg-primary"><img src="./images/avatar/c-sm.jpg" alt=""></div>
-                                    </li>
-                                    <li>
-                                        <div class="user-avatar sm bg-blue"><span>N</span></div>
-                                    </li>
-                                </ul>
-                                <span class="badge badge-dim badge-light text-gray"><em class="icon ni ni-clock"></em><span>21 Days Left</span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-4">
-                <div class="card card-bordered h-100">
-                    <div class="card-inner">
-                        <div class="project">
-                            <div class="project-head">
-                                <a href="html/apps-kanban.html" class="project-title">
-                                    <div class="user-avatar sq bg-info"><span>KR</span></div>
-                                    <div class="project-info">
-                                        <h6 class="title">Keyword Research for SEO</h6>
-                                        <span class="sub-text">Techyspec</span>
-                                    </div>
-                                </a>
-                                <div class="drodown">
-                                    <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 mr-n1" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <ul class="link-list-opt no-bdr">
-                                            <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Project</span></a></li>
-                                            <li><a href="#"><em class="icon ni ni-check-round-cut"></em><span>Mark As Done</span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="project-details">
-                                <p>Improve SEO keyword research, A/B testing, Local market improvement.</p>
-                            </div>
-                            <div class="project-progress">
-                                <div class="project-progress-details">
-                                    <div class="project-progress-task"><em class="icon ni ni-check-round-cut"></em><span>2 Tasks</span></div>
-                                    <div class="project-progress-percent">52.5%</div>
-                                </div>
-                                <div class="progress progress-pill progress-md bg-light">
-                                    <div class="progress-bar" data-progress="52.5"></div>
-                                </div>
-                            </div>
-                            <div class="project-meta">
-                                <ul class="project-users g-1">
-                                    <li>
-                                        <div class="user-avatar sm bg-primary"><img src="./images/avatar/a-sm.jpg" alt=""></div>
-                                    </li>
-                                </ul>
-                                <span class="badge badge-dim badge-danger"><em class="icon ni ni-clock"></em><span>Due Tomorrow</span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-4">
-                <div class="card card-bordered h-100">
-                    <div class="card-inner">
-                        <div class="project">
-                            <div class="project-head">
-                                <a href="html/apps-kanban.html" class="project-title">
-                                    <div class="user-avatar sq bg-danger"><span>WD</span></div>
-                                    <div class="project-info">
-                                        <h6 class="title">Website Development</h6>
-                                        <span class="sub-text">Fitness Next</span>
-                                    </div>
-                                </a>
-                                <div class="drodown">
-                                    <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 mr-n1" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <ul class="link-list-opt no-bdr">
-                                            <li><a href="html/apps-kanban.html"><em class="icon ni ni-eye"></em><span>View Project</span></a></li>
-                                            <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Project</span></a></li>
-                                            <li><a href="#"><em class="icon ni ni-check-round-cut"></em><span>Mark As Done</span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="project-details">
-                                <p>Develop the website using WordPree for the Fitness Next client.</p>
-                            </div>
-                            <div class="project-progress">
-                                <div class="project-progress-details">
-                                    <div class="project-progress-task"><em class="icon ni ni-check-round-cut"></em><span>44 Tasks</span></div>
-                                    <div class="project-progress-percent">65.5%</div>
-                                </div>
-                                <div class="progress progress-pill progress-md bg-light">
-                                    <div class="progress-bar" data-progress="65.5"></div>
-                                </div>
-                            </div>
-                            <div class="project-meta">
-                                <ul class="project-users g-1">
-                                    <li>
-                                        <div class="user-avatar sm bg-blue"><span>N</span></div>
-                                    </li>
-                                    <li>
-                                        <div class="user-avatar sm bg-primary"><img src="./images/avatar/c-sm.jpg" alt=""></div>
-                                    </li>
-                                </ul>
-                                <span class="badge badge-dim badge-light text-gray"><em class="icon ni ni-clock"></em><span>16 Days Left</span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-4">
-                <div class="card card-bordered h-100">
-                    <div class="card-inner">
-                        <div class="project">
-                            <div class="project-head">
-                                <a href="html/apps-kanban.html" class="project-title">
-                                    <div class="user-avatar sq bg-info"><span>KR</span></div>
-                                    <div class="project-info">
-                                        <h6 class="title">Keyword Research for SEO</h6>
-                                        <span class="sub-text">Techyspec</span>
-                                    </div>
-                                </a>
-                                <div class="drodown">
-                                    <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 mr-n1" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <ul class="link-list-opt no-bdr">
-                                            <li><a href="html/apps-kanban.html"><em class="icon ni ni-eye"></em><span>View Project</span></a></li>
-                                            <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Project</span></a></li>
-                                            <li><a href="#"><em class="icon ni ni-check-round-cut"></em><span>Mark As Done</span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="project-details">
-                                <p>Improve SEO keyword research, A/B testing, Local market improvement.</p>
-                            </div>
-                            <div class="project-progress">
-                                <div class="project-progress-details">
-                                    <div class="project-progress-task"><em class="icon ni ni-check-round-cut"></em><span>8 Tasks</span></div>
-                                    <div class="project-progress-percent">100%</div>
-                                </div>
-                                <div class="progress progress-pill progress-md bg-light">
-                                    <div class="progress-bar" data-progress="100"></div>
-                                </div>
-                            </div>
-                            <div class="project-meta">
-                                <ul class="project-users g-1">
-                                    <li>
-                                        <div class="user-avatar sm bg-primary"><img src="./images/avatar/a-sm.jpg" alt=""></div>
-                                    </li>
-                                    <li>
-                                        <div class="user-avatar sm bg-primary"><img src="./images/avatar/d-sm.jpg" alt=""></div>
-                                    </li>
-                                </ul>
-                                <span class="badge badge-dim badge-success"><em class="icon ni ni-clock"></em><span>Done</span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-4">
-                <div class="card card-bordered h-100">
-                    <div class="card-inner">
-                        <div class="project">
-                            <div class="project-head">
-                                <a href="html/apps-kanban.html" class="project-title">
-                                    <div class="user-avatar sq bg-purple"><span>DD</span></div>
-                                    <div class="project-info">
-                                        <h6 class="title">Dashlite Development</h6>
-                                        <span class="sub-text">Softnio</span>
-                                    </div>
-                                </a>
-                                <div class="drodown">
-                                    <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 mr-n1" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <ul class="link-list-opt no-bdr">
-                                            <li><a href="html/apps-kanban.html"><em class="icon ni ni-eye"></em><span>View Project</span></a></li>
-                                            <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Project</span></a></li>
-                                            <li><a href="#"><em class="icon ni ni-check-round-cut"></em><span>Mark As Done</span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="project-details">
-                                <p>Design and develop the DashLite template for Envato Marketplace.</p>
-                            </div>
-                            <div class="project-progress">
-                                <div class="project-progress-details">
-                                    <div class="project-progress-task"><em class="icon ni ni-check-round-cut"></em><span>3 Tasks</span></div>
-                                    <div class="project-progress-percent">93.5%</div>
-                                </div>
-                                <div class="progress progress-pill progress-md bg-light">
-                                    <div class="progress-bar" data-progress="93.5"></div>
-                                </div>
-                            </div>
-                            <div class="project-meta">
-                                <ul class="project-users g-1">
-                                    <li>
-                                        <div class="user-avatar sm bg-primary"><span>A</span></div>
-                                    </li>
-                                    <li>
-                                        <div class="user-avatar sm bg-blue"><img src="./images/avatar/b-sm.jpg" alt=""></div>
-                                    </li>
-                                    <li>
-                                        <div class="user-avatar bg-light sm"><span>+12</span></div>
-                                    </li>
-                                </ul>
-                                <span class="badge badge-dim badge-warning"><em class="icon ni ni-clock"></em><span>5 Days Left</span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-4">
-                <div class="card card-bordered h-100">
-                    <div class="card-inner">
-                        <div class="project">
-                            <div class="project-head">
-                                <a href="html/apps-kanban.html" class="project-title">
-                                    <div class="user-avatar sq bg-danger"><span>WD</span></div>
-                                    <div class="project-info">
-                                        <h6 class="title">Website Development</h6>
-                                        <span class="sub-text">Fitness Next</span>
-                                    </div>
-                                </a>
-                                <div class="drodown">
-                                    <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 mr-n1" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <ul class="link-list-opt no-bdr">
-                                            <li><a href="html/apps-kanban.html"><em class="icon ni ni-eye"></em><span>View Project</span></a></li>
-                                            <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Project</span></a></li>
-                                            <li><a href="#"><em class="icon ni ni-check-round-cut"></em><span>Mark As Done</span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="project-details">
-                                <p>Develop the website using WordPree for the Fitness Next client.</p>
-                            </div>
-                            <div class="project-progress">
-                                <div class="project-progress-details">
-                                    <div class="project-progress-task"><em class="icon ni ni-check-round-cut"></em><span>44 Tasks</span></div>
-                                    <div class="project-progress-percent">65.5%</div>
-                                </div>
-                                <div class="progress progress-pill progress-md bg-light">
-                                    <div class="progress-bar" data-progress="65.5"></div>
-                                </div>
-                            </div>
-                            <div class="project-meta">
-                                <ul class="project-users g-1">
-                                    <li>
-                                        <div class="user-avatar sm bg-blue"><span>N</span></div>
-                                    </li>
-                                    <li>
-                                        <div class="user-avatar sm bg-primary"><img src="./images/avatar/c-sm.jpg" alt=""></div>
-                                    </li>
-                                </ul>
-                                <span class="badge badge-dim badge-light text-gray"><em class="icon ni ni-clock"></em><span>16 Days Left</span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-4">
-                <div class="card card-bordered h-100">
-                    <div class="card-inner">
-                        <div class="project">
-                            <div class="project-head">
-                                <a href="html/apps-kanban.html" class="project-title">
-                                    <div class="user-avatar sq bg-warning"><span>RW</span></div>
-                                    <div class="project-info">
-                                        <h6 class="title">Redesign Website</h6>
-                                        <span class="sub-text">Runnergy</span>
-                                    </div>
-                                </a>
-                                <div class="drodown">
-                                    <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 mr-n1" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <ul class="link-list-opt no-bdr">
-                                            <li><a href="html/apps-kanban.html"><em class="icon ni ni-eye"></em><span>View Project</span></a></li>
-                                            <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Project</span></a></li>
-                                            <li><a href="#"><em class="icon ni ni-check-round-cut"></em><span>Mark As Done</span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="project-details">
-                                <p>Design the website for Runnergy main website including their user dashboard.</p>
-                            </div>
-                            <div class="project-progress">
-                                <div class="project-progress-details">
-                                    <div class="project-progress-task"><em class="icon ni ni-check-round-cut"></em><span>25 Tasks</span></div>
-                                    <div class="project-progress-percent">23%</div>
-                                </div>
-                                <div class="progress progress-pill progress-md bg-light">
-                                    <div class="progress-bar" data-progress="23"></div>
-                                </div>
-                            </div>
-                            <div class="project-meta">
-                                <ul class="project-users g-1">
-                                    <li>
-                                        <div class="user-avatar sm bg-primary"><img src="./images/avatar/c-sm.jpg" alt=""></div>
-                                    </li>
-                                    <li>
-                                        <div class="user-avatar sm bg-blue"><span>N</span></div>
-                                    </li>
-                                </ul>
-                                <span class="badge badge-dim badge-light text-gray"><em class="icon ni ni-clock"></em><span>21 Days Left</span></span>
-                            </div>
+                        <div class="project-meta" style="margin-top:12px;">
+                            <span class="badge badge-dim badge-success">
+                                <em class="icon ni ni-check-circle"></em>
+                                <span>Activo</span>
+                            </span>
+                            <span class="text-soft" style="font-size:11px;">Desde 2018</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div><!-- .nk-block -->
 
-    
+        <!-- Fraccionamiento 2 -->
+        <div class="col-sm-6 col-xl-4">
+            <div class="card card-bordered h-100">
+                <div class="card-inner">
+                    <div class="project">
+                        <div class="project-head">
+                            <a href="#" class="project-title">
+                                <div class="user-avatar sq bg-warning"><span>LP</span></div>
+                                <div class="project-info">
+                                    <h6 class="title">Las Palmas</h6>
+                                    <span class="sub-text">Zapopan, Jalisco</span>
+                                </div>
+                            </a>
+                            <div class="drodown">
+                                <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 mr-n1" data-toggle="dropdown">
+                                    <em class="icon ni ni-more-h"></em>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <ul class="link-list-opt no-bdr">
+                                        <li><a href="#"><em class="icon ni ni-eye"></em><span>Ver Detalle</span></a></li>
+                                        <li><a href="#"><em class="icon ni ni-edit"></em><span>Editar</span></a></li>
+                                        <li><a href="#"><em class="icon ni ni-users"></em><span>Ver Colonos</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <p>Privada con acceso controlado, jardín central y área de juegos infantiles. Alta plusvalía.</p>
+                        </div>
+                        <ul class="team-statistics" style="list-style:none; padding:0; display:flex; gap:20px; margin-bottom:12px;">
+                            <li>
+                                <span class="amount">85</span>
+                                <span class="title text-soft" style="display:block; font-size:11px;">Lotes</span>
+                            </li>
+                            <li>
+                                <span class="amount">72</span>
+                                <span class="title text-soft" style="display:block; font-size:11px;">Colonos</span>
+                            </li>
+                        </ul>
+                        <div class="project-progress">
+                            <div class="project-progress-details">
+                                <div class="project-progress-task">
+                                    <em class="icon ni ni-money"></em>
+                                    <span>Cuotas al corriente</span>
+                                </div>
+                                <div class="project-progress-percent">62%</div>
+                            </div>
+                            <div class="progress progress-pill progress-md bg-light">
+                                <div class="progress-bar bg-warning" data-progress="62" style="width:62%"></div>
+                            </div>
+                        </div>
+                        <div class="project-meta" style="margin-top:12px;">
+                            <span class="badge badge-dim badge-success">
+                                <em class="icon ni ni-check-circle"></em>
+                                <span>Activo</span>
+                            </span>
+                            <span class="text-soft" style="font-size:11px;">Desde 2020</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fraccionamiento 3 -->
+        <div class="col-sm-6 col-xl-4">
+            <div class="card card-bordered h-100">
+                <div class="card-inner">
+                    <div class="project">
+                        <div class="project-head">
+                            <a href="#" class="project-title">
+                                <div class="user-avatar sq bg-info"><span>RB</span></div>
+                                <div class="project-info">
+                                    <h6 class="title">Residencial Bosques</h6>
+                                    <span class="sub-text">Tlaquepaque, Jalisco</span>
+                                </div>
+                            </a>
+                            <div class="drodown">
+                                <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 mr-n1" data-toggle="dropdown">
+                                    <em class="icon ni ni-more-h"></em>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <ul class="link-list-opt no-bdr">
+                                        <li><a href="#"><em class="icon ni ni-eye"></em><span>Ver Detalle</span></a></li>
+                                        <li><a href="#"><em class="icon ni ni-edit"></em><span>Editar</span></a></li>
+                                        <li><a href="#"><em class="icon ni ni-users"></em><span>Ver Colonos</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <p>Desarrollo en etapa de construcción. Proyecto de alta densidad con amenidades premium.</p>
+                        </div>
+                        <ul class="team-statistics" style="list-style:none; padding:0; display:flex; gap:20px; margin-bottom:12px;">
+                            <li>
+                                <span class="amount">200</span>
+                                <span class="title text-soft" style="display:block; font-size:11px;">Lotes</span>
+                            </li>
+                            <li>
+                                <span class="amount">34</span>
+                                <span class="title text-soft" style="display:block; font-size:11px;">Colonos</span>
+                            </li>
+                        </ul>
+                        <div class="project-progress">
+                            <div class="project-progress-details">
+                                <div class="project-progress-task">
+                                    <em class="icon ni ni-building"></em>
+                                    <span>Avance de obra</span>
+                                </div>
+                                <div class="project-progress-percent">38%</div>
+                            </div>
+                            <div class="progress progress-pill progress-md bg-light">
+                                <div class="progress-bar bg-info" data-progress="38" style="width:38%"></div>
+                            </div>
+                        </div>
+                        <div class="project-meta" style="margin-top:12px;">
+                            <span class="badge badge-dim badge-info">
+                                <em class="icon ni ni-building"></em>
+                                <span>En Construcción</span>
+                            </span>
+                            <span class="text-soft" style="font-size:11px;">Desde 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fraccionamiento 4 -->
+        <div class="col-sm-6 col-xl-4">
+            <div class="card card-bordered h-100">
+                <div class="card-inner">
+                    <div class="project">
+                        <div class="project-head">
+                            <a href="#" class="project-title">
+                                <div class="user-avatar sq bg-primary"><span>VH</span></div>
+                                <div class="project-info">
+                                    <h6 class="title">Vista Hermosa</h6>
+                                    <span class="sub-text">Tonalá, Jalisco</span>
+                                </div>
+                            </a>
+                            <div class="drodown">
+                                <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 mr-n1" data-toggle="dropdown">
+                                    <em class="icon ni ni-more-h"></em>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <ul class="link-list-opt no-bdr">
+                                        <li><a href="#"><em class="icon ni ni-eye"></em><span>Ver Detalle</span></a></li>
+                                        <li><a href="#"><em class="icon ni ni-edit"></em><span>Editar</span></a></li>
+                                        <li><a href="#"><em class="icon ni ni-users"></em><span>Ver Colonos</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <p>Fraccionamiento compacto con vista panorámica. Ideal para familias jóvenes. Seguridad perimetral.</p>
+                        </div>
+                        <ul class="team-statistics" style="list-style:none; padding:0; display:flex; gap:20px; margin-bottom:12px;">
+                            <li>
+                                <span class="amount">45</span>
+                                <span class="title text-soft" style="display:block; font-size:11px;">Lotes</span>
+                            </li>
+                            <li>
+                                <span class="amount">43</span>
+                                <span class="title text-soft" style="display:block; font-size:11px;">Colonos</span>
+                            </li>
+                        </ul>
+                        <div class="project-progress">
+                            <div class="project-progress-details">
+                                <div class="project-progress-task">
+                                    <em class="icon ni ni-money"></em>
+                                    <span>Cuotas al corriente</span>
+                                </div>
+                                <div class="project-progress-percent">96%</div>
+                            </div>
+                            <div class="progress progress-pill progress-md bg-light">
+                                <div class="progress-bar bg-success" data-progress="96" style="width:96%"></div>
+                            </div>
+                        </div>
+                        <div class="project-meta" style="margin-top:12px;">
+                            <span class="badge badge-dim badge-success">
+                                <em class="icon ni ni-check-circle"></em>
+                                <span>Activo</span>
+                            </span>
+                            <span class="text-soft" style="font-size:11px;">Desde 2016</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fraccionamiento 5 -->
+        <div class="col-sm-6 col-xl-4">
+            <div class="card card-bordered h-100">
+                <div class="card-inner">
+                    <div class="project">
+                        <div class="project-head">
+                            <a href="#" class="project-title">
+                                <div class="user-avatar sq bg-purple"><span>RM</span></div>
+                                <div class="project-info">
+                                    <h6 class="title">Real del Monte</h6>
+                                    <span class="sub-text">Guadalajara, Jalisco</span>
+                                </div>
+                            </a>
+                            <div class="drodown">
+                                <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 mr-n1" data-toggle="dropdown">
+                                    <em class="icon ni ni-more-h"></em>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <ul class="link-list-opt no-bdr">
+                                        <li><a href="#"><em class="icon ni ni-eye"></em><span>Ver Detalle</span></a></li>
+                                        <li><a href="#"><em class="icon ni ni-edit"></em><span>Editar</span></a></li>
+                                        <li><a href="#"><em class="icon ni ni-users"></em><span>Ver Colonos</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <p>El fraccionamiento más grande de la cartera. Cuenta con club de tenis, alberca y salón de eventos.</p>
+                        </div>
+                        <ul class="team-statistics" style="list-style:none; padding:0; display:flex; gap:20px; margin-bottom:12px;">
+                            <li>
+                                <span class="amount">160</span>
+                                <span class="title text-soft" style="display:block; font-size:11px;">Lotes</span>
+                            </li>
+                            <li>
+                                <span class="amount">141</span>
+                                <span class="title text-soft" style="display:block; font-size:11px;">Colonos</span>
+                            </li>
+                        </ul>
+                        <div class="project-progress">
+                            <div class="project-progress-details">
+                                <div class="project-progress-task">
+                                    <em class="icon ni ni-money"></em>
+                                    <span>Cuotas al corriente</span>
+                                </div>
+                                <div class="project-progress-percent">74%</div>
+                            </div>
+                            <div class="progress progress-pill progress-md bg-light">
+                                <div class="progress-bar bg-warning" data-progress="74" style="width:74%"></div>
+                            </div>
+                        </div>
+                        <div class="project-meta" style="margin-top:12px;">
+                            <span class="badge badge-dim badge-success">
+                                <em class="icon ni ni-check-circle"></em>
+                                <span>Activo</span>
+                            </span>
+                            <span class="text-soft" style="font-size:11px;">Desde 2013</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fraccionamiento 6 -->
+        <div class="col-sm-6 col-xl-4">
+            <div class="card card-bordered h-100">
+                <div class="card-inner">
+                    <div class="project">
+                        <div class="project-head">
+                            <a href="#" class="project-title">
+                                <div class="user-avatar sq bg-danger"><span>LP</span></div>
+                                <div class="project-info">
+                                    <h6 class="title">Los Pinos</h6>
+                                    <span class="sub-text">Zapopan, Jalisco</span>
+                                </div>
+                            </a>
+                            <div class="drodown">
+                                <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 mr-n1" data-toggle="dropdown">
+                                    <em class="icon ni ni-more-h"></em>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <ul class="link-list-opt no-bdr">
+                                        <li><a href="#"><em class="icon ni ni-eye"></em><span>Ver Detalle</span></a></li>
+                                        <li><a href="#"><em class="icon ni ni-edit"></em><span>Editar</span></a></li>
+                                        <li><a href="#"><em class="icon ni ni-alert-circle"></em><span>Reactivar</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <p>Fraccionamiento suspendido temporalmente por litigio legal en proceso. Pendiente resolución judicial.</p>
+                        </div>
+                        <ul class="team-statistics" style="list-style:none; padding:0; display:flex; gap:20px; margin-bottom:12px;">
+                            <li>
+                                <span class="amount">75</span>
+                                <span class="title text-soft" style="display:block; font-size:11px;">Lotes</span>
+                            </li>
+                            <li>
+                                <span class="amount">60</span>
+                                <span class="title text-soft" style="display:block; font-size:11px;">Colonos</span>
+                            </li>
+                        </ul>
+                        <div class="project-progress">
+                            <div class="project-progress-details">
+                                <div class="project-progress-task">
+                                    <em class="icon ni ni-money"></em>
+                                    <span>Cuotas al corriente</span>
+                                </div>
+                                <div class="project-progress-percent">31%</div>
+                            </div>
+                            <div class="progress progress-pill progress-md bg-light">
+                                <div class="progress-bar bg-danger" data-progress="31" style="width:31%"></div>
+                            </div>
+                        </div>
+                        <div class="project-meta" style="margin-top:12px;">
+                            <span class="badge badge-dim badge-danger">
+                                <em class="icon ni ni-alert-circle"></em>
+                                <span>Suspendido</span>
+                            </span>
+                            <span class="text-soft" style="font-size:11px;">Desde 2019</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 {% endblock %}
