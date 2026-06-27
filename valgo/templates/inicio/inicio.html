@@ -1,24 +1,689 @@
 {% extends 'menu/menu.html' %}
+{% load static %}
 
 {% block tittle %}
-
-    <title>Inicio - Hogares Valgo</title>
+<title>Dashboard - Hogares Valgo</title>
 {% endblock %}
 
 {% block content %}
-    
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    {% if messages %}
-        {% for message in messages %}
-            <script>
-                Swal.fire({
-                    title: '{% if message.tags == "success" %}Correcto!{% else %}Error!{% endif %}',
-                    text: '{{ message|escapejs }}',
-                    icon: '{% if message.tags == "success" %}success{% else %}error{% endif %}',
-                    confirmButtonText: 'Aceptar'
-                });
-            </script>
-        {% endfor %}
-    {% endif %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% if messages %}
+{% for message in messages %}
+<script>
+    Swal.fire({
+        title: '{% if message.tags == "success" %}Correcto!{% else %}Error!{% endif %}',
+        text: '{{ message|escapejs }}',
+        icon: '{% if message.tags == "success" %}success{% else %}error{% endif %}',
+        confirmButtonText: 'Aceptar'
+    });
+</script>
+{% endfor %}
+{% endif %}
+
+<!-- ===== DASHBOARD CUOTAS MTTO ===== -->
+<div class="nk-block-head nk-block-head-sm">
+    <div class="nk-block-between">
+        <div class="nk-block-head-content">
+            <h3 class="nk-block-title page-title">Dashboard — Cuotas de Mantenimiento</h3>
+            <div class="nk-block-des text-soft">
+                <p>Resumen general de cobranza · <strong>Junio 2026</strong></p>
+            </div>
+        </div>
+        <div class="nk-block-head-content">
+            <form method="get" action="" class="d-flex align-items-center" style="gap:8px;">
+                <select id="filMes"  name="mes"  class="form-select form-select-sm" style="min-width:120px;"></select>
+                <select id="filAnio" name="anio" class="form-select form-select-sm" style="min-width:90px;"></select>
+                <button type="submit" class="btn btn-sm btn-primary">
+                    <em class="icon ni ni-filter"></em>
+                </button>
+            </form>
+        </div>
+        <script>
+        (function () {
+            var params  = new URLSearchParams(window.location.search);
+            var mesSel  = parseInt(params.get('mes'))  || 7;
+            var anioSel = parseInt(params.get('anio')) || 2026;
+
+            var meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+                         'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+            var selMes = document.getElementById('filMes');
+            meses.forEach(function(nombre, i) {
+                var opt = new Option(nombre, i + 1, false, i + 1 === mesSel);
+                selMes.add(opt);
+            });
+
+            var selAnio = document.getElementById('filAnio');
+            var anioActual = new Date().getFullYear();
+            for (var a = anioActual - 2; a <= anioActual; a++) {
+                selAnio.add(new Option(a, a, false, a === anioSel));
+            }
+        })();
+        </script>
+    </div>
+</div>
+
+<!-- ===== ROW 1: KPI cards ===== -->
+<div class="nk-block">
+    <div class="row g-gs">
+
+        <!-- KPI 1 – Fraccionamientos activos -->
+        <div class="col-sm-6 col-xl-3 d-flex">
+            <div class="card card-bordered h-100 w-100 shadow-sm">
+                <div class="card-inner">
+                    <div class="card-title-group align-start mb-2">
+                        <div class="card-title">
+                            <h6 class="subtitle">Fraccionamientos activos</h6>
+                        </div>
+                        <div class="card-tools">
+                            <em class="icon icon-circle bg-primary-dim ni ni-home-fill"></em>
+                        </div>
+                    </div>
+                    <div class="card-amount d-flex align-items-center">
+                        <span class="amount mr-2">8</span>
+                        <span class="text-soft">Fraccionamientos</span>
+                    </div>
+                    <div class="mt-2">
+                        <span class="badge badge-dim badge-success">6 al corriente</span>
+                        <span class="badge badge-dim badge-danger ml-1">2 con mora</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI 2 – Colonos totales -->
+        <div class="col-sm-6 col-xl-3 d-flex">
+            <div class="card card-bordered h-100 w-100 shadow-sm">
+                <div class="card-inner">
+                    <div class="card-title-group align-start mb-2">
+                        <div class="card-title">
+                            <h6 class="subtitle">Colonos registrados</h6>
+                        </div>
+                        <div class="card-tools">
+                            <em class="icon icon-circle bg-info-dim ni ni-users-fill"></em>
+                        </div>
+                    </div>
+                    <div class="card-amount d-flex align-items-center">
+                        <span class="amount mr-2">342</span>
+                        <span class="text-soft">colonos en total</span>
+                    </div>
+                    <div class="mt-2">
+                        <span class="badge badge-dim badge-success">214 al corriente</span>
+                        <span class="badge badge-dim badge-danger ml-1">128 con adeudo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI 3 – Tasa de morosidad -->
+        <div class="col-sm-6 col-xl-3 d-flex">
+            <div class="card card-bordered h-100 w-100 shadow-sm">
+                <div class="card-inner">
+                    <div class="card-title-group align-start mb-2">
+                        <div class="card-title">
+                            <h6 class="subtitle">Tasa de morosidad</h6>
+                        </div>
+                        <div class="card-tools">
+                            <em class="icon icon-circle bg-danger-dim ni ni-alert-fill"></em>
+                        </div>
+                    </div>
+                    <div class="card-amount d-flex align-items-center">
+                        <span class="amount text-danger mr-2">37.4<small>%</small></span>
+                        <span class="text-soft">colonos con adeudo activo</span>
+                    </div>
+                    <div class="mt-2">
+                        <div class="progress" style="height:6px;">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width:37.4%"></div>
+                        </div>
+                        <small class="text-soft">Meta: menos del 20%</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI 4 – Monto pendiente -->
+        <div class="col-sm-6 col-xl-3 d-flex">
+            <div class="card card-bordered h-100 w-100 shadow-sm">
+                <div class="card-inner">
+                    <div class="card-title-group align-start mb-3">
+                        <div class="card-title">
+                            <h6 class="subtitle">Monto total pendiente</h6>
+                        </div>
+                        <div class="card-tools">
+                            <em class="icon icon-circle bg-warning-dim ni ni-coins"></em>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <div class="amount" style="font-size: 2.2rem; font-weight: 400; line-height: 1;">
+                            $485,200
+                            <small class="text-soft" style="font-size: 1rem;">MXN</small>
+                        </div>
+
+                        <div class="text-soft mt-2" style="font-size: 0.95rem;">
+                            Cartera vencida
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div><!-- nk-block row 1 -->
+
+<!-- ===== ROW 2: Fraccionamientos morosos + % Pago promedio ===== -->
+<div class="nk-block mt-3">
+    <div class="row g-gs">
+
+        <!-- Card: Fraccionamientos más morosos -->
+        <div class="col-xl-7">
+            <div class="card card-bordered h-100">
+                <div class="card-inner">
+                    <div class="card-title-group align-start mb-3">
+                        <div class="card-title">
+                            <h6 class="title">
+                                <em class="icon ni ni-alert-circle-fill text-danger mr-1"></em>
+                                Fraccionamientos más morosos
+                            </h6>
+                            <p class="text-soft">Ranking por porcentaje de colonos con adeudo</p>
+                        </div>
+                        <div class="card-tools">
+                            <a href="/carteraVencidaMtto/" class="btn btn-sm btn-outline-light">
+                                <em class="icon ni ni-external"></em>
+                                <span>Ver cartera</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="nk-tb-list nk-tb-ulist">
+                        <div class="nk-tb-item nk-tb-head">
+                            <div class="nk-tb-col"><span class="sub-text">#</span></div>
+                            <div class="nk-tb-col"><span class="sub-text">Fraccionamiento</span></div>
+                            <div class="nk-tb-col"><span class="sub-text">Colonos</span></div>
+                            <div class="nk-tb-col"><span class="sub-text">Con adeudo</span></div>
+                            <div class="nk-tb-col"><span class="sub-text">Monto pendiente</span></div>
+                            <div class="nk-tb-col"><span class="sub-text">% Mora</span></div>
+                        </div>
+
+                        <!-- Fila 1 -->
+                        <div class="nk-tb-item">
+                            <div class="nk-tb-col">
+                                <span class="badge badge-danger badge-sm">1</span>
+                            </div>
+                            <div class="nk-tb-col">
+                                <div class="user-info">
+                                    <span class="tb-lead">Las Palmas</span>
+                                    <span class="text-soft">Sector norte</span>
+                                </div>
+                            </div>
+                            <div class="nk-tb-col"><span class="tb-amount">48</span></div>
+                            <div class="nk-tb-col"><span class="tb-amount text-danger">29</span></div>
+                            <div class="nk-tb-col"><span class="tb-amount">$87,500</span></div>
+                            <div class="nk-tb-col">
+                                <div class="progress" style="height:6px; min-width:80px;">
+                                    <div class="progress-bar bg-danger" style="width:60%"></div>
+                                </div>
+                                <small class="text-danger fw-bold">60%</small>
+                            </div>
+                        </div>
+
+                        <!-- Fila 2 -->
+                        <div class="nk-tb-item">
+                            <div class="nk-tb-col">
+                                <span class="badge badge-warning badge-sm">2</span>
+                            </div>
+                            <div class="nk-tb-col">
+                                <div class="user-info">
+                                    <span class="tb-lead">Villa del Rey</span>
+                                    <span class="text-soft">Sector oriente</span>
+                                </div>
+                            </div>
+                            <div class="nk-tb-col"><span class="tb-amount">62</span></div>
+                            <div class="nk-tb-col"><span class="tb-amount text-danger">33</span></div>
+                            <div class="nk-tb-col"><span class="tb-amount">$112,800</span></div>
+                            <div class="nk-tb-col">
+                                <div class="progress" style="height:6px; min-width:80px;">
+                                    <div class="progress-bar bg-warning" style="width:53%"></div>
+                                </div>
+                                <small class="text-warning fw-bold">53%</small>
+                            </div>
+                        </div>
+
+                        <!-- Fila 3 -->
+                        <div class="nk-tb-item">
+                            <div class="nk-tb-col">
+                                <span class="badge badge-warning badge-sm">3</span>
+                            </div>
+                            <div class="nk-tb-col">
+                                <div class="user-info">
+                                    <span class="tb-lead">Los Pinos</span>
+                                    <span class="text-soft">Sector sur</span>
+                                </div>
+                            </div>
+                            <div class="nk-tb-col"><span class="tb-amount">55</span></div>
+                            <div class="nk-tb-col"><span class="tb-amount text-danger">24</span></div>
+                            <div class="nk-tb-col"><span class="tb-amount">$74,600</span></div>
+                            <div class="nk-tb-col">
+                                <div class="progress" style="height:6px; min-width:80px;">
+                                    <div class="progress-bar bg-warning" style="width:44%"></div>
+                                </div>
+                                <small class="text-warning fw-bold">44%</small>
+                            </div>
+                        </div>
+
+                        <!-- Fila 4 -->
+                        <div class="nk-tb-item">
+                            <div class="nk-tb-col">
+                                <span class="badge badge-outline-secondary badge-sm">4</span>
+                            </div>
+                            <div class="nk-tb-col">
+                                <div class="user-info">
+                                    <span class="tb-lead">Jardines del Sol</span>
+                                    <span class="text-soft">Sector poniente</span>
+                                </div>
+                            </div>
+                            <div class="nk-tb-col"><span class="tb-amount">70</span></div>
+                            <div class="nk-tb-col"><span class="tb-amount text-warning">26</span></div>
+                            <div class="nk-tb-col"><span class="tb-amount">$98,300</span></div>
+                            <div class="nk-tb-col">
+                                <div class="progress" style="height:6px; min-width:80px;">
+                                    <div class="progress-bar bg-secondary" style="width:37%"></div>
+                                </div>
+                                <small class="text-soft fw-bold">37%</small>
+                            </div>
+                        </div>
+
+                        <!-- Fila 5 -->
+                        <div class="nk-tb-item">
+                            <div class="nk-tb-col">
+                                <span class="badge badge-outline-secondary badge-sm">5</span>
+                            </div>
+                            <div class="nk-tb-col">
+                                <div class="user-info">
+                                    <span class="tb-lead">Residencial Arboledas</span>
+                                    <span class="text-soft">Sector centro</span>
+                                </div>
+                            </div>
+                            <div class="nk-tb-col"><span class="tb-amount">40</span></div>
+                            <div class="nk-tb-col"><span class="tb-amount text-warning">14</span></div>
+                            <div class="nk-tb-col"><span class="tb-amount">$42,000</span></div>
+                            <div class="nk-tb-col">
+                                <div class="progress" style="height:6px; min-width:80px;">
+                                    <div class="progress-bar bg-secondary" style="width:35%"></div>
+                                </div>
+                                <small class="text-soft fw-bold">35%</small>
+                            </div>
+                        </div>
+
+                    </div><!-- nk-tb-list -->
+                </div>
+            </div>
+        </div><!-- col -->
+
+        <!-- Card: % Pago promedio por fraccionamiento -->
+        <div class="col-xl-5">
+            <div class="card card-bordered h-100">
+                <div class="card-inner">
+                    <div class="card-title-group align-start mb-3">
+                        <div class="card-title">
+                            <h6 class="title">
+                                <em class="icon ni ni-pie-alt text-primary mr-1"></em>
+                                % Pago promedio por fraccionamiento
+                            </h6>
+                            <p class="text-soft">Avance de cobro del mes en curso</p>
+                        </div>
+                    </div>
+
+                    <div class="gy-3">
+
+                        <div class="progress-wrap mb-3">
+                            <div class="d-flex justify-between mb-1">
+                                <span class="text-soft fw-bold">Santa Fe Residencial</span>
+                                <span class="text-success fw-bold">92%</span>
+                            </div>
+                            <div class="progress" style="height:8px;">
+                                <div class="progress-bar bg-success" style="width:92%"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress-wrap mb-3">
+                            <div class="d-flex justify-between mb-1">
+                                <span class="text-soft fw-bold">Cumbres del Valle</span>
+                                <span class="text-success fw-bold">87%</span>
+                            </div>
+                            <div class="progress" style="height:8px;">
+                                <div class="progress-bar bg-success" style="width:87%"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress-wrap mb-3">
+                            <div class="d-flex justify-between mb-1">
+                                <span class="text-soft fw-bold">Residencial Arboledas</span>
+                                <span class="text-info fw-bold">65%</span>
+                            </div>
+                            <div class="progress" style="height:8px;">
+                                <div class="progress-bar bg-info" style="width:65%"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress-wrap mb-3">
+                            <div class="d-flex justify-between mb-1">
+                                <span class="text-soft fw-bold">Jardines del Sol</span>
+                                <span class="text-info fw-bold">63%</span>
+                            </div>
+                            <div class="progress" style="height:8px;">
+                                <div class="progress-bar bg-info" style="width:63%"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress-wrap mb-3">
+                            <div class="d-flex justify-between mb-1">
+                                <span class="text-soft fw-bold">Los Pinos</span>
+                                <span class="text-warning fw-bold">56%</span>
+                            </div>
+                            <div class="progress" style="height:8px;">
+                                <div class="progress-bar bg-warning" style="width:56%"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress-wrap mb-3">
+                            <div class="d-flex justify-between mb-1">
+                                <span class="text-soft fw-bold">El Mirador</span>
+                                <span class="text-warning fw-bold">51%</span>
+                            </div>
+                            <div class="progress" style="height:8px;">
+                                <div class="progress-bar bg-warning" style="width:51%"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress-wrap mb-3">
+                            <div class="d-flex justify-between mb-1">
+                                <span class="text-soft fw-bold">Villa del Rey</span>
+                                <span class="text-danger fw-bold">47%</span>
+                            </div>
+                            <div class="progress" style="height:8px;">
+                                <div class="progress-bar bg-danger" style="width:47%"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress-wrap mb-0">
+                            <div class="d-flex justify-between mb-1">
+                                <span class="text-soft fw-bold">Las Palmas</span>
+                                <span class="text-danger fw-bold">40%</span>
+                            </div>
+                            <div class="progress" style="height:8px;">
+                                <div class="progress-bar bg-danger" style="width:40%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Leyenda promedio global -->
+                        <div class="divider mt-3"></div>
+                        <div class="d-flex justify-between align-center mt-2">
+                            <span class="overline-title text-soft">Promedio global del mes</span>
+                            <span class="amount fs-16px text-primary fw-bold">62.6%</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- col -->
+
+    </div>
+</div><!-- nk-block row 2 -->
+
+<!-- ===== ROW 3: Clientes con más meses de adeudo ===== -->
+<div class="nk-block mt-3">
+    <div class="row g-gs">
+
+        <div class="col-12">
+            <div class="card card-bordered">
+                <div class="card-inner">
+                    <div class="card-title-group align-start mb-3">
+                        <div class="card-title">
+                            <h6 class="title">
+                                <em class="icon ni ni-user-cross-fill text-danger mr-1"></em>
+                                Clientes con más meses de adeudo
+                            </h6>
+                            <p class="text-soft">Top 10 colonos con mayor antigüedad de deuda acumulada</p>
+                        </div>
+                        <div class="card-tools">
+                            <a href="/clientesMorososMtto/" class="btn btn-sm btn-outline-light">
+                                <em class="icon ni ni-external"></em>
+                                <span>Ver morosos</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="nk-tb-list nk-tb-ulist">
+                        <div class="nk-tb-item nk-tb-head">
+                            <div class="nk-tb-col"><span class="sub-text">#</span></div>
+                            <div class="nk-tb-col nk-tb-col-check"><span class="sub-text">Colono</span></div>
+                            <div class="nk-tb-col"><span class="sub-text">Fraccionamiento</span></div>
+                            <div class="nk-tb-col tb-col-sm"><span class="sub-text">Casa / Lote</span></div>
+                            <div class="nk-tb-col"><span class="sub-text">Meses adeudo</span></div>
+                            <div class="nk-tb-col"><span class="sub-text">Monto total</span></div>
+                            <div class="nk-tb-col"><span class="sub-text">Último pago</span></div>
+                            <div class="nk-tb-col"><span class="sub-text">Estatus</span></div>
+                        </div>
+
+                        <!-- Colono 1 -->
+                        <div class="nk-tb-item">
+                            <div class="nk-tb-col"><span class="badge badge-danger">1</span></div>
+                            <div class="nk-tb-col nk-tb-col-check">
+                                <div class="user-info">
+                                    <span class="tb-lead">Roberto Sánchez Leal</span>
+                                    <span class="text-soft">ID-0042</span>
+                                </div>
+                            </div>
+                            <div class="nk-tb-col"><span>Las Palmas</span></div>
+                            <div class="nk-tb-col tb-col-sm"><span>Casa 14-A</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-danger badge-dot">14 meses</span>
+                            </div>
+                            <div class="nk-tb-col"><span class="fw-bold text-danger">$21,000</span></div>
+                            <div class="nk-tb-col"><span class="text-soft">Abr 2025</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-dim badge-danger">Crítico</span>
+                            </div>
+                        </div>
+
+                        <!-- Colono 2 -->
+                        <div class="nk-tb-item">
+                            <div class="nk-tb-col"><span class="badge badge-danger">2</span></div>
+                            <div class="nk-tb-col nk-tb-col-check">
+                                <div class="user-info">
+                                    <span class="tb-lead">María Fernández Rojas</span>
+                                    <span class="text-soft">ID-0078</span>
+                                </div>
+                            </div>
+                            <div class="nk-tb-col"><span>Villa del Rey</span></div>
+                            <div class="nk-tb-col tb-col-sm"><span>Casa 7-B</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-danger badge-dot">13 meses</span>
+                            </div>
+                            <div class="nk-tb-col"><span class="fw-bold text-danger">$19,500</span></div>
+                            <div class="nk-tb-col"><span class="text-soft">May 2025</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-dim badge-danger">Crítico</span>
+                            </div>
+                        </div>
+
+                        <!-- Colono 3 -->
+                        <div class="nk-tb-item">
+                            <div class="nk-tb-col"><span class="badge badge-warning">3</span></div>
+                            <div class="nk-tb-col nk-tb-col-check">
+                                <div class="user-info">
+                                    <span class="tb-lead">Carlos Méndez Torres</span>
+                                    <span class="text-soft">ID-0115</span>
+                                </div>
+                            </div>
+                            <div class="nk-tb-col"><span>Las Palmas</span></div>
+                            <div class="nk-tb-col tb-col-sm"><span>Casa 22-C</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-warning badge-dot">11 meses</span>
+                            </div>
+                            <div class="nk-tb-col"><span class="fw-bold text-warning">$16,500</span></div>
+                            <div class="nk-tb-col"><span class="text-soft">Jul 2025</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-dim badge-warning">Alto</span>
+                            </div>
+                        </div>
+
+                        <!-- Colono 4 -->
+                        <div class="nk-tb-item">
+                            <div class="nk-tb-col"><span class="badge badge-warning">4</span></div>
+                            <div class="nk-tb-col nk-tb-col-check">
+                                <div class="user-info">
+                                    <span class="tb-lead">Ana Luz Guerrero P.</span>
+                                    <span class="text-soft">ID-0203</span>
+                                </div>
+                            </div>
+                            <div class="nk-tb-col"><span>Los Pinos</span></div>
+                            <div class="nk-tb-col tb-col-sm"><span>Casa 3-D</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-warning badge-dot">10 meses</span>
+                            </div>
+                            <div class="nk-tb-col"><span class="fw-bold text-warning">$15,000</span></div>
+                            <div class="nk-tb-col"><span class="text-soft">Ago 2025</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-dim badge-warning">Alto</span>
+                            </div>
+                        </div>
+
+                        <!-- Colono 5 -->
+                        <div class="nk-tb-item">
+                            <div class="nk-tb-col"><span class="badge badge-warning">5</span></div>
+                            <div class="nk-tb-col nk-tb-col-check">
+                                <div class="user-info">
+                                    <span class="tb-lead">Jorge Luis Ibáñez H.</span>
+                                    <span class="text-soft">ID-0189</span>
+                                </div>
+                            </div>
+                            <div class="nk-tb-col"><span>Villa del Rey</span></div>
+                            <div class="nk-tb-col tb-col-sm"><span>Casa 19-F</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-warning badge-dot">9 meses</span>
+                            </div>
+                            <div class="nk-tb-col"><span class="fw-bold text-warning">$13,500</span></div>
+                            <div class="nk-tb-col"><span class="text-soft">Sep 2025</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-dim badge-warning">Alto</span>
+                            </div>
+                        </div>
+
+                        <!-- Colono 6 -->
+                        <div class="nk-tb-item">
+                            <div class="nk-tb-col"><span class="badge badge-outline-secondary">6</span></div>
+                            <div class="nk-tb-col nk-tb-col-check">
+                                <div class="user-info">
+                                    <span class="tb-lead">Patricia Olvera Cruz</span>
+                                    <span class="text-soft">ID-0056</span>
+                                </div>
+                            </div>
+                            <div class="nk-tb-col"><span>Jardines del Sol</span></div>
+                            <div class="nk-tb-col tb-col-sm"><span>Casa 8-A</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-secondary badge-dot">8 meses</span>
+                            </div>
+                            <div class="nk-tb-col"><span class="fw-bold">$12,000</span></div>
+                            <div class="nk-tb-col"><span class="text-soft">Oct 2025</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-dim badge-secondary">Moderado</span>
+                            </div>
+                        </div>
+
+                        <!-- Colono 7 -->
+                        <div class="nk-tb-item">
+                            <div class="nk-tb-col"><span class="badge badge-outline-secondary">7</span></div>
+                            <div class="nk-tb-col nk-tb-col-check">
+                                <div class="user-info">
+                                    <span class="tb-lead">Luis Alberto Reyes M.</span>
+                                    <span class="text-soft">ID-0134</span>
+                                </div>
+                            </div>
+                            <div class="nk-tb-col"><span>Residencial Arboledas</span></div>
+                            <div class="nk-tb-col tb-col-sm"><span>Casa 11-B</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-secondary badge-dot">7 meses</span>
+                            </div>
+                            <div class="nk-tb-col"><span class="fw-bold">$10,500</span></div>
+                            <div class="nk-tb-col"><span class="text-soft">Nov 2025</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-dim badge-secondary">Moderado</span>
+                            </div>
+                        </div>
+
+                        <!-- Colono 8 -->
+                        <div class="nk-tb-item">
+                            <div class="nk-tb-col"><span class="badge badge-outline-secondary">8</span></div>
+                            <div class="nk-tb-col nk-tb-col-check">
+                                <div class="user-info">
+                                    <span class="tb-lead">Gabriela Moreno S.</span>
+                                    <span class="text-soft">ID-0271</span>
+                                </div>
+                            </div>
+                            <div class="nk-tb-col"><span>El Mirador</span></div>
+                            <div class="nk-tb-col tb-col-sm"><span>Casa 5-C</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-secondary badge-dot">6 meses</span>
+                            </div>
+                            <div class="nk-tb-col"><span class="fw-bold">$9,000</span></div>
+                            <div class="nk-tb-col"><span class="text-soft">Dic 2025</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-dim badge-secondary">Moderado</span>
+                            </div>
+                        </div>
+
+                        <!-- Colono 9 -->
+                        <div class="nk-tb-item">
+                            <div class="nk-tb-col"><span class="badge badge-outline-secondary">9</span></div>
+                            <div class="nk-tb-col nk-tb-col-check">
+                                <div class="user-info">
+                                    <span class="tb-lead">Eduardo Castillo V.</span>
+                                    <span class="text-soft">ID-0309</span>
+                                </div>
+                            </div>
+                            <div class="nk-tb-col"><span>Las Palmas</span></div>
+                            <div class="nk-tb-col tb-col-sm"><span>Casa 30-A</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-secondary badge-dot">5 meses</span>
+                            </div>
+                            <div class="nk-tb-col"><span class="fw-bold">$7,500</span></div>
+                            <div class="nk-tb-col"><span class="text-soft">Ene 2026</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-dim badge-info">Bajo</span>
+                            </div>
+                        </div>
+
+                        <!-- Colono 10 -->
+                        <div class="nk-tb-item">
+                            <div class="nk-tb-col"><span class="badge badge-outline-secondary">10</span></div>
+                            <div class="nk-tb-col nk-tb-col-check">
+                                <div class="user-info">
+                                    <span class="tb-lead">Sofía Vázquez Noriega</span>
+                                    <span class="text-soft">ID-0088</span>
+                                </div>
+                            </div>
+                            <div class="nk-tb-col"><span>Cumbres del Valle</span></div>
+                            <div class="nk-tb-col tb-col-sm"><span>Casa 2-F</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-secondary badge-dot">4 meses</span>
+                            </div>
+                            <div class="nk-tb-col"><span class="fw-bold">$6,000</span></div>
+                            <div class="nk-tb-col"><span class="text-soft">Feb 2026</span></div>
+                            <div class="nk-tb-col">
+                                <span class="badge badge-dim badge-info">Bajo</span>
+                            </div>
+                        </div>
+
+                    </div><!-- nk-tb-list -->
+                </div>
+            </div>
+        </div><!-- col -->
+
+    </div>
+</div><!-- nk-block row 3 -->
+
 {% endblock %}
